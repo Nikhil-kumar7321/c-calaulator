@@ -1,0 +1,31 @@
+ #include<iostream>
+using namespace std;
+int main (){
+    int n1,n2;
+    char op ;
+   
+   cout<<"enter your expration like a+b"<<endl;
+    cin>>n1;
+    cin>>op ;
+   // cout<<"enter the second number ";
+    cin>>n2;
+   // cout<<"enter the operation";
+   // cin>>op ;
+   
+     if(op  == '+')
+     
+        cout<<"sum = "<<n1+n2;
+    
+ if(op == '-')
+        cout<<"difference = "<<n1-n2;
+    
+ if(op =='*' )
+        cout<<"multiplication = "<<n1*n2;
+    
+ if(op =='/' )
+        cout<<"sum = "<<n1/n2;
+    
+
+return 0;
+
+}

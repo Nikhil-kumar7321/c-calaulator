@@ -1,0 +1,79 @@
+//CGPA CLACULATER 
+#include<iostream>
+#include<vector>
+using namespace std;
+class subject{
+public:
+string subName;
+int credit;
+float gradepoint;
+//constructore
+subject(string name, int cr,float gp){
+     subName = name;
+     credit = cr;
+      gradepoint = gp;
+    
+}
+};
+class student{
+    public:
+    string name;
+    vector<subject>subjects;
+    //constructore
+    student(string studentname){
+        name=studentname;
+
+    }
+    void addsubject(string subName,int credit,float gradepoint){
+        subject newsubject(subName, credit, gradepoint);
+        subjects.push_back(newsubject);
+
+    }
+    float calculatecgpa()
+    {
+        int totalcredit=0;
+        float weightgradpoint=0;
+        for(const subject & subject:subjects)
+        {
+            totalcredit+=subject.credit;
+            weightgradpoint+=subject.credit*subject.gradepoint;
+        }
+        return(totalcredit>0)?(weightgradpoint/totalcredit):0;
+    }
+    void display(){
+        cout<<"student name "<<name<<endl;
+        float cgpa=calculatecgpa();
+        cout<<"CGPA = "<<cgpa<<" "<<endl;
+    }
+    // void addsubject(string subname, int credit, float gradepoint);
+};
+ 
+ int main(){
+    string studentname;
+    int numsub;
+    cout<<"enter the student's name ";
+    getline(cin, studentname);
+
+    cout<<"enter the number of subject ";
+    cin>>numsub;
+    student student(studentname) ;
+    for(int i=0;i<numsub;i++){
+        string subName;
+        int credit;
+        float gradepoint;
+        cout<<"enter the subject's name ";
+        cin.ignore();
+        getline(cin, subName);
+
+        cout<<"enter the credit ";
+        cin>>credit;
+
+        cout<<"enter the gradpiont ";
+        cin>>gradepoint;
+        student.addsubject(subName, credit, gradepoint);
+
+
+    }
+    student.display();
+    return 0;
+ }
